@@ -4,7 +4,7 @@ Python wrapper around the command line interface for The Private Internet Access
 
 Python 3.7, no additional dependencies.
 
-
+![Upload to Pypi](https://github.com/bskapital/piapy/workflows/Upload%20to%20Pypi/badge.svg)
 
 ## Installation
 
