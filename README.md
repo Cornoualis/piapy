@@ -1,7 +1,4 @@
-
-
-
-PIAPY
+piapy
 ===
 Simple Python 3.7 wrapper around the command line interface for The Private Internet Access VPN desktop client.
 
