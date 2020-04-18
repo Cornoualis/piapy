@@ -16,14 +16,14 @@ pip install piapy
 
 ## Usage
 
- - PIA  client must be installed in the target machine.
+ - PIA client must be installed.
 
 -  PIA client must be running to use the connect method.
 
 ```python
 from piapy import PiaVpn
 
-vpn_obj = PiaVpn()
+vpn = PiaVpn()
 
 vpn.status()     # equivalent to `piactl get connectionstate`
 vpn.connect()
@@ -40,7 +40,7 @@ vpn.disconnect()
 
     i.e. ```'us-houston'```
 
-- ```set_region(server='auto')``` Cause the client to connect to selected server next time it connect. If client is already connected with disconnect and connect to new selected server.
+- ```set_region(server='auto')``` Cause the client to connect to selected server next time it connects. If client is already connected will disconnect and connect to new selected server.
   *  server (type: str)
       +  'auto': use client auto select feature to set server with least latency.
       + 'random': set a random server from the available list.
