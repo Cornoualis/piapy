@@ -26,7 +26,7 @@ from piapy import PiaVpn
 vpn = PiaVpn()
 
 vpn.status()     # equivalent to `piactl get connectionstate`
-vpn.connect()
+vpn.connect(verbose=True, timeout=20)
 vpn.disconnect()
 ```
 
