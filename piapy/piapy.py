@@ -147,4 +147,4 @@ if __name__ == '__main__':
 
     print(vpn.region())
 
-    print(vpn.set_region(server='random'))
+    vpn.connect(verbose=True)
