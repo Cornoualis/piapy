@@ -1,55 +1,74 @@
-piapy
-===
-Simple Python 3.7 wrapper around the command line interface for The Private Internet Access VPN desktop client.
+# Piapy
 
-No additional requirements.
+Python wrapper around the command line interface for The Private Internet Access. Intended to facilitate the operation of the PIA client from within Python.
 
-PIA knowledge bank article can be seen [here](https://www.privateinternetaccess.com/helpdesk/kb/articles/pia-desktop-comPmand-line-interface)
-
-Developed and tested on a Linux Ubuntu machine. Not tested on Windows.
-
-Work in progress, feel free to contact me.
-
-## Instructions
- * PIA client must be installed.
- * PIA client must be running to use the connect command
- * Install running:
-   * `pip install PiaPy`
-* Import the package
-  * `from piapy import PiaVpn`
-* Initialize a new VPN object with:
-  * `new_obj = PiaVpn()`
-* Use it.
-
-## Methods
-
-Working on  this . . .
-
-| methods       |args              | expected result  |
-|--              |--                 |--                |
-|regions         |                            |  |
-| region         |  |
-| set_region     | server=None, auto, random, server_name |
-| connect        | verbose=False, timeout=20 |
-| disconnect     |  |
-| ip             |  |
-| status         |  |
+Python 3.7, no additional dependencies.
 
 
-## Example
 
-  working on this ...
+## Installation
 
-    from piapy import PiaVpn
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install *piapy*.
 
-    vpn = PiaVpn()
-    vpn.status()
-    vpn.disconnect()
-    vpn.connect(verbose=True)
-    vpn.ip()
+```bash
+pip install piapy
+```
+
+## Usage
+
+ - PIA  client must be installed in the target machine.
+
+-  PIA client must be running to use the connect method.
+
+```python
+from piapy import PiaVpn
+
+vpn_obj = PiaVpn()
+
+vpn.status()     # equivalent to `piactl get connectionstate`
+vpn.connect()
+vpn.disconnect()
+```
+
+### Available Methods
+
+-  ```regions()``` Returns list of strings with available servers.
+
+   i.e.:     ```['us-florida', 'us-atlanta', 'us-houston', 'us-washington-dc', 'us-east', 'us-chicago', 'us-new-york-city', 'us-texas', 'us-west', ...]```
+
+- ```region()``` Returns string of current selected server name.
+
+    i.e. ```'us-houston'```
+
+- ```set_region(server='auto')``` Cause the client to connect to selected server next time it connect. If client is already connected with disconnect and connect to new selected server.
+  *  server (type: str)
+      +  'auto': use client auto select feature to set server with least latency.
+      + 'random': set a random server from the available list.
+      + '[server name]': set the server to a specific name, must be in the available list.
+
+ - ```connect(verbose=False, timeout=20)``` Cause the client to connect
+   * verbose (type: bool) cause to display connecting status in stdout
+   * timeout (type: int) will disconnect if connection not possible before timeout
+ - ```disconnect()``` Cause client to disconnect
+ - ```ip()``` Returns the current VPN IP address, if connected and the address is known
+ - ```status()``` Returns client conection status.
+
+	```Disconnected, Connecting, StillConnecting, Connected, Interrupted, Reconnecting, StillReconnecting, DisconnectingToReconnect, Disconnecting```
+
+- ```reset_settings()``` Resets settings to the defaults. As per the documentation this only resets daemon settings, no GUI settings.
+
+- ```set_debug_logging(value=False)``` Enable client debug logging.
+
+## About this software
+The *piapy* software is a personal project. I have no prior or existing relationship with [Private Internet Access](https://www.privateinternetaccess.com/)
+
+If you have any information regarding its software, you can visit them:
+*  [PIA VPN](https://www.privateinternetaccess.com/)
+* [PIA Desktop: Command Line Interface](https://www.privateinternetaccess.com/helpdesk/kb/articles/pia-desktop-command-line-interface)
 
 
 
 ## License
+with [MIT](https://choosealicense.com/licenses/mit/) open source licence.
 
-With MIT open source license
+

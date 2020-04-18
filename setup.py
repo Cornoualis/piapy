@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="piapy_old",
+    name="piapy",
     version="0.0.1b1.dev0",
     author="Javier Garcia",
     author_email="javier.garcia.d@gmail.com",

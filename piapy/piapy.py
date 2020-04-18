@@ -125,7 +125,6 @@ class PiaVpn:
         else:
             return True
 
-
     @staticmethod
     def set_debug_logging(value=True):
 
@@ -140,5 +139,12 @@ class PiaVpn:
         else:
             return True
 
-    def test(self):
-        pass
+
+if __name__ == '__main__':
+    vpn = PiaVpn()
+    servers = vpn.regions()
+    print(servers)
+
+    print(vpn.region())
+
+    print(vpn.set_region(server='random'))
