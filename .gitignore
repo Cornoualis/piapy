@@ -131,5 +131,5 @@ dmypy.json
 .pyre/
 
 .idea/
-secrets.txt
+
 
